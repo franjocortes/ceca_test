@@ -13,7 +13,7 @@ class VehicleIndex(TemplateView):
         data = {}
         try:
             post = json.loads(request.body)
-            vehicles = Vehicle.objects.filter(car_plate=post['car_plate'])
+            vehicles = Vehicle.objects.filter(car_plate__contains=post['car_plate'])
             data = []
             for vehicle in vehicles:
                 data.append(vehicle.to_json())

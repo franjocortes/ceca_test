@@ -9,24 +9,45 @@ document.addEventListener("DOMContentLoaded", ev => {
         console.log(location.href);
 
         let requestBody = {
-            'car_plate': form.car_plate.value
+            'car_plate': form.car_plate.value.toUpperCase()
         };
 
+        // Method that completes the DOM according to the response
         const construct = (type, text = "") => {
             if (type === "ERROR") {
-                responseDOM.innerHTML = "ERRORRRR";
+                responseDOM.innerHTML = `<div class="alert alert-danger" role="alert">
+                                            <h4 class="alert-heading">Error</h4>
+                                            <p>${text}</p>
+                                         </div>`;
             }
 
             if (type === "EMPTY") {
                 responseDOM.innerHTML = text;
+                responseDOM.innerHTML = `<div class="card">
+                                            <h5 class="card-header">Result of ${form.car_plate.value.toUpperCase()}</h5>
+                                            <div class="card-body">
+                                                <p>${text}</p>
+                                            </div>
+                                        </div>`;
             }
 
             if (type === "OK") {
-                text.forEach(item => responseDOM.innerHTML += item.car_name);
-                // responseDOM.innerHTML = text.car_name;
+                let cars = "";
+                text.forEach(item => {
+                    cars += `<li>${item.car_plate} - ${item.car_name}</li>`;
+                });
+                responseDOM.innerHTML = `<div class="card">
+                                            <h5 class="card-header">Result of ${form.car_plate.value.toUpperCase()}</h5>
+                                            <div class="card-body">
+                                                <ul>
+                                                    ${cars}
+                                                </ul>
+                                            </div>
+                                        </div>`;
             }
         }
 
+        // Ajax request
         sendHttpAsync(location.href, "POST", requestBody)
             .then(response => {
                 console.log(response['body']);
@@ -38,9 +59,9 @@ document.addEventListener("DOMContentLoaded", ev => {
                     }
                     return false;
                 }
-                responseDOM.innerHTML = response['body'].error;
+                construct("ERROR", response['body'].error);
             }).catch(error => {
-                responseDOM.innerHTML = error;
+                construct("ERROR", error);
             }
         );
     });

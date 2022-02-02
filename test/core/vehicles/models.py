@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import model_to_dict
 
 
 class Vehicle(models.Model):
@@ -7,3 +8,7 @@ class Vehicle(models.Model):
 
     def __str__(self):
         return f'{self.car_plate} - {self.car_name}'
+
+    def to_json(self):
+        item = model_to_dict(self)
+        return item

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
     <div class="container-sm my-5 mx-auto">
@@ -12,7 +14,7 @@
             <h5 class="card-header">Search vehicle</h5>
             <div class="card-body">
 
-                <form>
+                <form id="search_form" method="post">
                     <div class="mb-3">
                         <label for="car_plate" class="form-label">Car plate</label>
                         <input type="text" class="form-control text-center" id="car_plate" name="car_plate">
@@ -24,11 +26,13 @@
 
             </div>
         </div>
+
+        <div id="response" class="my-5"></div>
+
     </div>
 
 {% endblock %}
 
 {% block js_base %}
-    <script type="application/javascript">
-    </script>
+    <script src="{% static 'js/form_search.js' %}"></script>
 {% endblock %}

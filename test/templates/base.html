@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,6 +20,8 @@
     {% block content %}
     {% endblock %}
 </div>
+
+<script src="{% static 'js/main.js' %}"></script>
 
 {% block js_base %}
 {% endblock %}

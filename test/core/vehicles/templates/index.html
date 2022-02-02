@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container-sm my-5 mx-auto">
+        <h1>Hello, do you want to change your insurance?</h1>
+        <h2>First you have to verify if we have your vehicle loaded in our database</h2>
+    </div>
+
+    <div class="container-sm my-5 mx-auto">
+        <div class="card">
+            <h5 class="card-header">Search vehicle</h5>
+            <div class="card-body">
+
+                <form>
+                    <div class="mb-3">
+                        <label for="car_plate" class="form-label">Car plate</label>
+                        <input type="text" class="form-control text-center" id="car_plate" name="car_plate">
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

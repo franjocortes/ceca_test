@@ -58,5 +58,45 @@
   {
     "name": "Peugeot 408 año 2015",
     "plate": "NGT334"
+  },
+  {
+    "name": "Toyota Hilux año 2015",
+    "plate": "NGT376"
+  },
+  {
+    "name": "Toyota SW4 año 2020",
+    "plate": "AD345HY"
+  },
+  {
+    "name": "Chevrolet S10 año 2019",
+    "plate": "AB889XC"
+  },
+  {
+    "name": "Renault Clio año 2018",
+    "plate": "AA111BB"
+  },
+  {
+    "name": "Renault Clio año 2019",
+    "plate": "AB111BB"
+  },
+  {
+    "name": "Renault Symbol año 2020",
+    "plate": "AT221PL"
+  },
+  {
+    "name": "Renault Megane año 2012",
+    "plate": "MMG887"
+  },
+  {
+    "name": "Renault Duster año 2018",
+    "plate": "AA993GT"
+  },
+  {
+    "name": "Fiat Toro año 2020",
+    "plate": "AC097RF"
+  },
+  {
+    "name": "Fiat Toro año 2021",
+    "plate": "AD007DS"
   }
 ]

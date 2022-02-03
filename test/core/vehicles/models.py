@@ -9,10 +9,12 @@ class Vehicle(models.Model):
     def __str__(self):
         return f'{self.car_plate} - {self.car_name}'
 
+    # Always save the plate in uppercase
     def save(self, *args, **kwargs):
         self.car_plate = self.car_plate.upper()
         return super(Vehicle, self).save(*args, **kwargs)
 
+    # Returns a dictionary of the model fields
     def to_json(self):
         item = model_to_dict(self)
         return item

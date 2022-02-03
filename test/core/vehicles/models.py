@@ -4,7 +4,7 @@ from django.forms import model_to_dict
 
 class Vehicle(models.Model):
     car_name = models.CharField(max_length=300)
-    car_plate = models.CharField(max_length=10)
+    car_plate = models.CharField(max_length=10, unique=True)
 
     def __str__(self):
         return f'{self.car_plate} - {self.car_name}'
